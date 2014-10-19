@@ -1,0 +1,32 @@
+apply plugin: 'com.android.application'
+apply plugin: "android-scala"
+
+android {
+    compileSdkVersion 20
+    buildToolsVersion "20.0.0"
+
+    defaultConfig {
+        applicationId "github.io.scaloidexample"
+        minSdkVersion 15
+        targetSdkVersion 20
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            runProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            runProguard true
+            proguardFiles 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile "org.scala-lang:scala-library:2.11.2"
+    compile "org.scaloid:scaloid_2.11:3.5-10+"
+}
